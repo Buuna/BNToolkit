@@ -16,6 +16,7 @@
 		A3AA77701F1196470576804F /* BNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA77865E54A95CBC8218C2 /* BNAppDelegate.m */; };
 		A3AA782C9C2CF2024BC3D7A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA70B04BA728ACE8FB2A76 /* Foundation.framework */; };
 		A3AA78DA3784615C99282170 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA7DD6545C5CD4A8550A2E /* XCTest.framework */; };
+		A3AA79832D83B0C2BC2B05C0 /* BNUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA72934B3E31AC1B199DB6 /* BNUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3AA79BA0C9D1EE9C4953CD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA790CEF71E0CD14721315 /* main.m */; };
 		A3AA7CA078F7368A0C1E56A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3AA73DEA5E8BE2833A4B925 /* InfoPlist.strings */; };
 		A3AA7ED9BEA4E056F1D559E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA70B04BA728ACE8FB2A76 /* Foundation.framework */; };
@@ -33,11 +34,13 @@
 
 /* Begin PBXFileReference section */
 		A3AA70B04BA728ACE8FB2A76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A3AA72934B3E31AC1B199DB6 /* BNUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNUtil.m; sourceTree = "<group>"; };
 		A3AA739E670441F06B088859 /* BNToolkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BNToolkit-Prefix.pch"; sourceTree = "<group>"; };
 		A3AA74CD519AC1E78BBD05EC /* BNToolkit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "BNToolkit-Info.plist"; sourceTree = "<group>"; };
 		A3AA74D84823F2BFA8248430 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A3AA74E3128903B08846072D /* BNToolkitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BNToolkitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3AA763095AB55E3E643AFAB /* BNToolkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BNToolkit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3AA76B150B65726729A37F3 /* BNUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNUtil.h; sourceTree = "<group>"; };
 		A3AA77865E54A95CBC8218C2 /* BNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNAppDelegate.m; sourceTree = "<group>"; };
 		A3AA790CEF71E0CD14721315 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3AA7B3159747815D393E61B /* BNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNAppDelegate.h; sourceTree = "<group>"; };
@@ -74,17 +77,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9EF4CB1018AC912B004CA57C /* BNToolkit */ = {
+			isa = PBXGroup;
+			children = (
+				A3AA76B150B65726729A37F3 /* BNUtil.h */,
+				A3AA72934B3E31AC1B199DB6 /* BNUtil.m */,
+			);
+			path = BNToolkit;
+			sourceTree = "<group>";
+		};
 		A3AA725A33E25A4CD1A94C61 = {
 			isa = PBXGroup;
 			children = (
+				9EF4CB1018AC912B004CA57C /* BNToolkit */,
+				A3AA72D4A960927E74722F8D /* Example */,
 				A3AA7E4A13774A0B9D85FB04 /* Products */,
 				A3AA7B4E2F4526ABD9D592B0 /* Frameworks */,
-				A3AA72D4A960927E74722F8D /* BNToolkit */,
 				A3AA756384BC585BBB3878C5 /* BNToolkitTests */,
 			);
 			sourceTree = "<group>";
 		};
-		A3AA72D4A960927E74722F8D /* BNToolkit */ = {
+		A3AA72D4A960927E74722F8D /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				A3AA7E02F55DC0ABC2F6E72A /* Supporting Files */,
@@ -92,7 +105,7 @@
 				A3AA77865E54A95CBC8218C2 /* BNAppDelegate.m */,
 				A3AA74D84823F2BFA8248430 /* Images.xcassets */,
 			);
-			path = BNToolkit;
+			path = Example;
 			sourceTree = "<group>";
 		};
 		A3AA756384BC585BBB3878C5 /* BNToolkitTests */ = {
@@ -235,6 +248,7 @@
 			files = (
 				A3AA79BA0C9D1EE9C4953CD7 /* main.m in Sources */,
 				A3AA77701F1196470576804F /* BNAppDelegate.m in Sources */,
+				A3AA79832D83B0C2BC2B05C0 /* BNUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,8 +296,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BNToolkit/BNToolkit-Prefix.pch";
-				INFOPLIST_FILE = "BNToolkit/BNToolkit-Info.plist";
+				GCC_PREFIX_HEADER = "Example/BNToolkit-Prefix.pch";
+				INFOPLIST_FILE = "Example/BNToolkit-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -344,8 +358,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BNToolkit/BNToolkit-Prefix.pch";
-				INFOPLIST_FILE = "BNToolkit/BNToolkit-Info.plist";
+				GCC_PREFIX_HEADER = "Example/BNToolkit-Prefix.pch";
+				INFOPLIST_FILE = "Example/BNToolkit-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -425,6 +439,7 @@
 				A3AA713AD8B6C8653E4FF7BD /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A3AA7C684995A162D5D9D7DF /* Build configuration list for PBXNativeTarget "BNToolkitTests" */ = {
 			isa = XCConfigurationList;
@@ -433,6 +448,7 @@
 				A3AA72EA6673FFAB91556951 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
