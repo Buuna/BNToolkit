@@ -13,8 +13,6 @@ build
 *.xcworkspace
 xcuserdata
 
-.idea
-
 Pods
 Podfile.lock
 
