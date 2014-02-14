@@ -116,12 +116,8 @@ BOOL BNStringIsValidEmail(NSString* string) {
     return emailValid;
 }
 
-NSString *BNUUID(void) {
-    CFUUIDRef uuid = CFUUIDCreate(NULL);
-    CFStringRef uuidString = CFUUIDCreateString(NULL, uuid);
-    NSString *aNSString = (__bridge NSString *)uuidString;
-    CFRelease(uuid), uuid = NULL;
-    return aNSString;
+inline NSString *BNUUID(void) {
+    return [[NSUUID UUID] UUIDString];
 }
 
 inline NSString * BNBoolToString(BOOL aBool){
@@ -248,7 +244,7 @@ CGPoint BNScrollViewContentOffsetToCenterRect(UIScrollView *scrollView, CGRect r
 }
 
 #pragma mark Location Services and Helpers
-BOOL BNLocationCoordinate2DEqualToCooordinate2D(CLLocationCoordinate2D a, CLLocationCoordinate2D b) {
+BOOL BNLocationCoordinate2DEqualToCoordinate2D(CLLocationCoordinate2D a, CLLocationCoordinate2D b) {
     if (a.longitude != b.longitude)
         return NO;
     if (a.latitude != b.latitude)

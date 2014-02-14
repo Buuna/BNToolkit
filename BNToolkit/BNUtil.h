@@ -100,13 +100,14 @@ UIView *BNFindFirstSubviewOfClass(UIView *, Class);
 UIView *BNFindFirstResponder(UIView *);
 CGFloat BNLabelWidthForHeight(UILabel *label, CGFloat height);
 CGPoint BNScrollViewContentOffsetToCenterRect(UIScrollView *scrollView, CGRect rect);
+inline void BNOffsetView(UIView *view, CGFloat x, CGFloat y);
 
 #pragma mark Location Services and Helpers
 
-BOOL BNLocationCoordinate2DEqualToCooordinate2D(CLLocationCoordinate2D a, CLLocationCoordinate2D b);
+BOOL BNLocationCoordinate2DEqualToCoordinate2D(CLLocationCoordinate2D a, CLLocationCoordinate2D b);
 double BNLocationCoordinate2DDistanceToCoordinate2D(CLLocationCoordinate2D a, CLLocationCoordinate2D b);
 static const inline double deg2rad(double);
-inline void BNOffsetView(UIView *view, CGFloat x, CGFloat y);
+
 
 
 
