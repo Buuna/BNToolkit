@@ -8,6 +8,25 @@
 
 #import "BNUtil.h"
 
+#pragma mark - Class Operations
+id BNEnsureKindOfClass(Class klass, id obj) {
+    if ([obj isKindOfClass:klass])
+        return obj;
+    return nil;
+}
+
+#define DEFINE_BNEnsure(klass) klass *BNEnsure##klass(id obj) {\
+    return BNEnsureKindOfClass([klass class], obj);\
+}
+
+DEFINE_BNEnsure(NSArray);
+DEFINE_BNEnsure(NSDictionary);
+DEFINE_BNEnsure(NSNumber);
+DEFINE_BNEnsure(NSSet);
+DEFINE_BNEnsure(NSString);
+
+#undef DEFINE_BNEnsure
+
 #pragma mark - Random Operations
 int BNRandomNumberDifferentFromNumber(int maxValue, int existingValue) {
     if (maxValue < 1) {
@@ -35,24 +54,7 @@ double BNRandDouble(double x) {
     return ((double)arc4random() / (double)MAX_ARC4_RANDOM * (x));
 }
 
-#pragma mark - Class Operations
-id BNEnsureKindOfClass(Class klass, id obj) {
-    if ([obj isKindOfClass:klass])
-        return obj;
-    return nil;
-}
 
-#define DEFINE_BNEnsure(klass) klass *BNEnsure##klass(id obj) {\
-    return BNEnsureKindOfClass([klass class], obj);\
-}
-
-DEFINE_BNEnsure(NSArray);
-DEFINE_BNEnsure(NSDictionary);
-DEFINE_BNEnsure(NSNumber);
-DEFINE_BNEnsure(NSSet);
-DEFINE_BNEnsure(NSString);
-
-#undef DEFINE_BNEnsure
 
 
 #pragma mark - Array Operations

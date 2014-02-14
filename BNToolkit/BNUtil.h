@@ -39,15 +39,6 @@
 
 #define IS_OBJECT_EQUAL_TO_OBJECT(s1, s2) ( ((s1) == (s2)) || ([(s1) isEqual:(s2)]) )
 
-
-#pragma mark - Random Operations
-
-static const unsigned long MAX_ARC4_RANDOM = 4294967295UL;
-
-double BNRandDouble(double x);
-int BNRandInt(int x);
-int BNRandomNumberDifferentFromNumber(int maxValue, int existingValue);
-
 #pragma mark - Class Operations
 
 id BNEnsureKindOfClass(Class, id);
@@ -61,6 +52,15 @@ DECLARE_BNEnsure(NSSet);
 DECLARE_BNEnsure(NSString);
 
 #undef DECLARE_BNEnsure
+
+
+#pragma mark - Random Operations
+
+static const unsigned long MAX_ARC4_RANDOM = 4294967295UL;
+
+double BNRandDouble(double x);
+int BNRandInt(int x);
+int BNRandomNumberDifferentFromNumber(int maxValue, int existingValue);
 
 #pragma mark - Array Operations
 
