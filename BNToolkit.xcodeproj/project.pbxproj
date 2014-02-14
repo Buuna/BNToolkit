@@ -15,6 +15,7 @@
 		A3AA74941E2C2583A8B96E5C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA7CECAA2AC96CE494F72E /* UIKit.framework */; };
 		A3AA77701F1196470576804F /* BNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA77865E54A95CBC8218C2 /* BNAppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3AA782C9C2CF2024BC3D7A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA70B04BA728ACE8FB2A76 /* Foundation.framework */; };
+		A3AA78BFC5020099FB113CB5 /* BNFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA7D25D234E39C976B09A2 /* BNFacebookManager.m */; };
 		A3AA78DA3784615C99282170 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA7DD6545C5CD4A8550A2E /* XCTest.framework */; };
 		A3AA79832D83B0C2BC2B05C0 /* BNUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA72934B3E31AC1B199DB6 /* BNUtil.m */; };
 		A3AA79BA0C9D1EE9C4953CD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA790CEF71E0CD14721315 /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -36,6 +37,7 @@
 		A3AA70B04BA728ACE8FB2A76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3AA72934B3E31AC1B199DB6 /* BNUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNUtil.m; sourceTree = "<group>"; };
 		A3AA739E670441F06B088859 /* BNToolkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BNToolkit-Prefix.pch"; sourceTree = "<group>"; };
+		A3AA746B39CB8848164E7FBD /* BNFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFacebookManager.h; sourceTree = "<group>"; };
 		A3AA74CD519AC1E78BBD05EC /* BNToolkit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "BNToolkit-Info.plist"; sourceTree = "<group>"; };
 		A3AA74D84823F2BFA8248430 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A3AA74E3128903B08846072D /* BNToolkitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BNToolkitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +49,7 @@
 		A3AA7C75BF2D1B8C2C8BE5CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A3AA7CD302A151056D0921E6 /* BNToolkitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNToolkitTests.m; sourceTree = "<group>"; };
 		A3AA7CECAA2AC96CE494F72E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A3AA7D25D234E39C976B09A2 /* BNFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFacebookManager.m; sourceTree = "<group>"; };
 		A3AA7DD6545C5CD4A8550A2E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A3AA7DF7A05E7BCCC8ED6428 /* BNToolkitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "BNToolkitTests-Info.plist"; sourceTree = "<group>"; };
 		A3AA7E038930CA50D9050F3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -82,8 +85,18 @@
 			children = (
 				A3AA76B150B65726729A37F3 /* BNUtil.h */,
 				A3AA72934B3E31AC1B199DB6 /* BNUtil.m */,
+				A3AA70C2CF77910340CF1DEC /* BNFacebookManager */,
 			);
 			path = BNToolkit;
+			sourceTree = "<group>";
+		};
+		A3AA70C2CF77910340CF1DEC /* BNFacebookManager */ = {
+			isa = PBXGroup;
+			children = (
+				A3AA746B39CB8848164E7FBD /* BNFacebookManager.h */,
+				A3AA7D25D234E39C976B09A2 /* BNFacebookManager.m */,
+			);
+			path = BNFacebookManager;
 			sourceTree = "<group>";
 		};
 		A3AA725A33E25A4CD1A94C61 = {
@@ -249,6 +262,7 @@
 				A3AA79BA0C9D1EE9C4953CD7 /* main.m in Sources */,
 				A3AA77701F1196470576804F /* BNAppDelegate.m in Sources */,
 				A3AA79832D83B0C2BC2B05C0 /* BNUtil.m in Sources */,
+				A3AA78BFC5020099FB113CB5 /* BNFacebookManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
