@@ -13,11 +13,11 @@
 		A3AA7353628C41798194E561 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA7F57F5CE5FAC5039E9B0 /* CoreGraphics.framework */; };
 		A3AA7360584CA68D5DB80904 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA7CECAA2AC96CE494F72E /* UIKit.framework */; };
 		A3AA74941E2C2583A8B96E5C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA7CECAA2AC96CE494F72E /* UIKit.framework */; };
-		A3AA77701F1196470576804F /* BNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA77865E54A95CBC8218C2 /* BNAppDelegate.m */; };
+		A3AA77701F1196470576804F /* BNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA77865E54A95CBC8218C2 /* BNAppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3AA782C9C2CF2024BC3D7A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA70B04BA728ACE8FB2A76 /* Foundation.framework */; };
 		A3AA78DA3784615C99282170 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA7DD6545C5CD4A8550A2E /* XCTest.framework */; };
-		A3AA79832D83B0C2BC2B05C0 /* BNUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA72934B3E31AC1B199DB6 /* BNUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A3AA79BA0C9D1EE9C4953CD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA790CEF71E0CD14721315 /* main.m */; };
+		A3AA79832D83B0C2BC2B05C0 /* BNUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA72934B3E31AC1B199DB6 /* BNUtil.m */; };
+		A3AA79BA0C9D1EE9C4953CD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA790CEF71E0CD14721315 /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3AA7CA078F7368A0C1E56A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3AA73DEA5E8BE2833A4B925 /* InfoPlist.strings */; };
 		A3AA7ED9BEA4E056F1D559E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA70B04BA728ACE8FB2A76 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -295,6 +295,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/BNToolkit-Prefix.pch";
 				INFOPLIST_FILE = "Example/BNToolkit-Info.plist";
@@ -357,6 +358,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/BNToolkit-Prefix.pch";
 				INFOPLIST_FILE = "Example/BNToolkit-Info.plist";

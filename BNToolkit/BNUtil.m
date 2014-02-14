@@ -12,8 +12,9 @@
 NSString *BNUUID(void) {
     CFUUIDRef uuid = CFUUIDCreate(NULL);
     CFStringRef uuidString = CFUUIDCreateString(NULL, uuid);
+    NSString *aNSString = (__bridge NSString *)uuidString;
     CFRelease(uuid), uuid = NULL;
-    return [(NSString *)uuidString autorelease];
+    return aNSString;
 }
 
 
@@ -173,7 +174,7 @@ UIImage *BNImageNamed(NSString *name) {
     if (!image)
         image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfFile:path]];
 
-    return [image autorelease];
+    return image;
 }
 
 UIView *BNFindFirstSuperviewOfClass(UIView *view, Class klass) {
@@ -191,7 +192,7 @@ UIView *BNFindFirstSubviewOfClass(UIView *view, Class klass) {
         if ([subview isKindOfClass:klass])
             return subview;
 
-        if ((subview = BNFindFirstSubviewOfClass(subview, klass)))
+        if ((subview == BNFindFirstSubviewOfClass(subview, klass)))
             return subview;
     }
 
