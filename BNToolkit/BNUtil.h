@@ -48,8 +48,8 @@ double BNRandDouble(double x);
 int BNRandInt(int x);
 int BNRandomNumberDifferentFromNumber(int maxValue, int existingValue);
 
-
 #pragma mark - Class Operations
+
 id BNEnsureKindOfClass(Class, id);
 
 #define DECLARE_BNEnsure(klass) klass *BNEnsure##klass(id)
@@ -63,26 +63,22 @@ DECLARE_BNEnsure(NSString);
 #undef DECLARE_BNEnsure
 
 #pragma mark - Array Operations
+
 NSArray *BNArrayArrayByRemovingLastObject(NSArray *array);
-
 id BNArrayFirstObjectOrNil(NSArray *array);
-
 NSUInteger BNArrayIndexOfBestObjectUsingComparator(NSArray *array, NSComparator comparator);
 
 #pragma mark - String Operations
+
 NSString *BNStringStringByRemovingCharactersInSet(NSString *string, NSCharacterSet *characterSet);
-
 BOOL BNStringIsStringByRemovingLeadingAndTrailingSpacesEmpty(NSString *string);
-
 NSString *BNStringByRemovingSuffix(NSString *string, NSString *suffix);
-
 BOOL BNStringIsValidEmail(NSString* string);
-
 NSString *BNUUID(void);
-
 inline NSString * BNBoolToString(BOOL aBool);
 
 #pragma mark Rect Operations
+
 typedef enum BNRectAxis {
     BNRectAxisBoth = 3,
     BNRectAxisX = 1,
@@ -94,7 +90,6 @@ CGPoint BNRectGetCenterPoint(CGRect rect);
 CGRect BNRectScaleAspectFit(CGRect containingRect, CGRect rect);
 CGRect BNRectCenterRect(CGRect containingRect, CGRect rect);
 CGRect BNRectCenterRectOnAxis(CGRect containingRect, CGRect rect, BNRectAxis axis);
-
 CGPathRef BNRoundedRectPathCreate(CGRect rect, CGFloat cornerRadius);
 
 
@@ -102,19 +97,15 @@ CGPathRef BNRoundedRectPathCreate(CGRect rect, CGFloat cornerRadius);
 
 UIView *BNFindFirstSuperviewOfClass(UIView *, Class);
 UIView *BNFindFirstSubviewOfClass(UIView *, Class);
-
 UIView *BNFindFirstResponder(UIView *);
-
 CGFloat BNLabelWidthForHeight(UILabel *label, CGFloat height);
-
 CGPoint BNScrollViewContentOffsetToCenterRect(UIScrollView *scrollView, CGRect rect);
 
 #pragma mark Location Services and Helpers
+
 BOOL BNLocationCoordinate2DEqualToCooordinate2D(CLLocationCoordinate2D a, CLLocationCoordinate2D b);
 double BNLocationCoordinate2DDistanceToCoordinate2D(CLLocationCoordinate2D a, CLLocationCoordinate2D b);
-
 static const inline double deg2rad(double);
-
 inline void BNOffsetView(UIView *view, CGFloat x, CGFloat y);
 
 
