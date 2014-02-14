@@ -1,6 +1,6 @@
 //
 //  BNUtil.m
-//  bluh
+//  Common Generic Utility Functions
 //
 //  Created by Scott Talbot on 24/11/11.
 //  Copyright (c) 2011 Wunderman Pty Ltd. All rights reserved.
@@ -8,16 +8,34 @@
 
 #import "BNUtil.h"
 
+#pragma mark - Random Operations
+int BNRandomNumberDifferentFromNumber(int maxValue, int existingValue) {
+    if (maxValue < 1) {
+        return maxValue;
+    }
+    if (maxValue == 1) {
+        return (existingValue == 0) ? 1 : 0;
+    }
 
-NSString *BNUUID(void) {
-    CFUUIDRef uuid = CFUUIDCreate(NULL);
-    CFStringRef uuidString = CFUUIDCreateString(NULL, uuid);
-    NSString *aNSString = (__bridge NSString *)uuidString;
-    CFRelease(uuid), uuid = NULL;
-    return aNSString;
+    int nAttempt = 0;
+    while (nAttempt++ < 100) {
+        int n = BNRandInt(maxValue + 1);
+        if (n != existingValue) {
+            return n;
+        }
+    }
+    return (existingValue < maxValue) ? (existingValue + 1) : (existingValue - 1);
 }
 
+int BNRandInt(int x) {
+    return  (arc4random() % (u_int32_t)(x));
+}
 
+double BNRandDouble(double x) {
+    return ((double)arc4random() / (double)MAX_ARC4_RANDOM * (x));
+}
+
+#pragma mark - Class Operations
 id BNEnsureKindOfClass(Class klass, id obj) {
     if ([obj isKindOfClass:klass])
         return obj;
@@ -37,6 +55,7 @@ DEFINE_BNEnsure(NSString);
 #undef DEFINE_BNEnsure
 
 
+#pragma mark - Array Operations
 NSArray *BNArrayArrayByRemovingLastObject(NSArray *array_) {
     NSMutableArray *array = [NSMutableArray arrayWithArray:array_];
     [array removeLastObject];
@@ -57,7 +76,7 @@ NSUInteger BNArrayIndexOfBestObjectUsingComparator(NSArray *array, NSComparator 
     return 0;
 }
 
-
+#pragma mark - String Operations
 NSString *BNStringStringByRemovingCharactersInSet(NSString *string, NSCharacterSet *characterSet) {
     NSUInteger stringLength = string.length;
 
@@ -81,6 +100,36 @@ BOOL BNStringIsStringByRemovingLeadingAndTrailingSpacesEmpty(NSString *string) {
     return ([string length] == 0);
 }
 
+NSString *BNStringByRemovingSuffix(NSString *string, NSString *suffix) {
+    if ([string hasSuffix:suffix])
+        string = [string substringToIndex:[string length] - [suffix length]];
+    return string;
+}
+
+BOOL BNStringIsValidEmail(NSString* string) {
+    NSError* error = NULL;
+    NSRegularExpression* regex = [NSRegularExpression
+            regularExpressionWithPattern:@"^.+@.+\\..+$"
+                                 options:NSRegularExpressionCaseInsensitive
+                                   error:&error];
+    BOOL emailValid = string && ([regex numberOfMatchesInString:string options:0 range:NSMakeRange(0, [string length])] == 1);
+    return emailValid;
+}
+
+NSString *BNUUID(void) {
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    CFStringRef uuidString = CFUUIDCreateString(NULL, uuid);
+    NSString *aNSString = (__bridge NSString *)uuidString;
+    CFRelease(uuid), uuid = NULL;
+    return aNSString;
+}
+
+inline NSString * BNBoolToString(BOOL aBool){
+    return (aBool ? @"true" : @"false");
+}
+
+#pragma mark Rect Operations
+
 void BNRectDivide(CGRect rect, CGRect *slice, CGRect *remainder, CGFloat amount, CGRectEdge edge) {
     CGRect tmp;
 
@@ -93,8 +142,8 @@ void BNRectDivide(CGRect rect, CGRect *slice, CGRect *remainder, CGFloat amount,
     CGRectDivide(rect, slice, remainder, amount, edge);
 }
 
-CGPoint BNRectGetCenter(CGRect rect) {
-    return CGPointMake(rect.origin.x + rect.size.width / 2, rect.origin.y + rect.size.height / 2);
+CGPoint BNRectGetCenterPoint(CGRect rect) {
+    return CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
 }
 
 CGRect BNRectScaleAspectFit(CGRect containingRect, CGRect rect) {
@@ -108,11 +157,11 @@ CGRect BNRectScaleAspectFit(CGRect containingRect, CGRect rect) {
     return rect;
 }
 
-CGRect BNRectCenter(CGRect containingRect, CGRect rect) {
-    return BNRectCenterOnAxis(containingRect, rect, BNRectAxisBoth);
+CGRect BNRectCenterRect(CGRect containingRect, CGRect rect) {
+    return BNRectCenterRectOnAxis(containingRect, rect, BNRectAxisBoth);
 }
 
-CGRect BNRectCenterOnAxis(CGRect containingRect, CGRect rect, BNRectAxis axis) {
+CGRect BNRectCenterRectOnAxis(CGRect containingRect, CGRect rect, BNRectAxis axis) {
     if (axis & BNRectAxisX) {
         rect.origin.x = containingRect.origin.x;
         rect.origin.x += CGRectGetWidth(containingRect)/2. - CGRectGetWidth(rect)/2.;
@@ -127,56 +176,26 @@ CGRect BNRectCenterOnAxis(CGRect containingRect, CGRect rect, BNRectAxis axis) {
 }
 
 
-NSString *BNStringByRemovingSuffix(NSString *string, NSString *suffix) {
-    if ([string hasSuffix:suffix])
-        string = [string substringToIndex:[string length] - [suffix length]];
-    return string;
+CGPathRef BNRoundedRectPathCreate(CGRect rect, CGFloat cornerRadius) {
+    CGPoint min = CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect));
+    CGPoint mid = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
+    CGPoint max = CGPointMake(CGRectGetMaxX(rect), CGRectGetMaxY(rect));
+
+    CGMutablePathRef path = CGPathCreateMutable();
+
+    CGPathMoveToPoint(path, NULL, min.x, mid.y);
+    CGPathAddArcToPoint(path, NULL, min.x, min.y, mid.x, min.y, cornerRadius);
+    CGPathAddArcToPoint(path, NULL, max.x, min.y, max.x, mid.y, cornerRadius);
+    CGPathAddArcToPoint(path, NULL, max.x, max.y, mid.x, max.y, cornerRadius);
+    CGPathAddArcToPoint(path, NULL, min.x, max.y, min.x, mid.y, cornerRadius);
+
+    CGPathCloseSubpath(path);
+
+    return path;
 }
 
 
-UIImage *BNImageNamed(NSString *name) {
-    static NSString *mainBundleResourcePath;
-    static CGFloat scale = 1;
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        mainBundleResourcePath = [[NSString alloc] initWithString:[[NSBundle mainBundle] resourcePath]];
-
-        UIScreen *mainScreen = [UIScreen mainScreen];
-        if ([mainScreen respondsToSelector:@selector(scale)])
-            scale = [[UIScreen mainScreen] scale];
-    });
-
-    NSString *path = [mainBundleResourcePath stringByAppendingPathComponent:name];
-    NSUInteger insertionPoint = [path length];
-    {
-        NSArray *deviceSpecifiers = [NSArray arrayWithObjects:@"~iphone", @"~ipad", nil];
-        NSRange periodRange = [path rangeOfString:@"." options:NSBackwardsSearch];
-        if (periodRange.length)
-            insertionPoint = periodRange.location;
-        for (NSString *deviceSpecifier in deviceSpecifiers) {
-            if ([path hasSuffix:deviceSpecifier]) {
-                insertionPoint -= [deviceSpecifier length];
-                break;
-            }
-        }
-    }
-
-    UIImage *image = nil;
-    if (scale == 2) {
-        NSString *path2x = [NSString stringWithFormat:@"%@@2x%@", [path substringToIndex:insertionPoint], [path substringFromIndex:insertionPoint]];
-
-        if ([[NSFileManager defaultManager] fileExistsAtPath:path2x]) {
-            image = [[UIImage alloc] initWithCGImage:[[UIImage imageWithData:[NSData dataWithContentsOfFile:path2x]] CGImage] scale:2 orientation:UIImageOrientationUp];
-        }
-    }
-
-    if (!image)
-        image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfFile:path]];
-
-    return image;
-}
-
+#pragma mark - UIView and Derivatives
 UIView *BNFindFirstSuperviewOfClass(UIView *view, Class klass) {
     if (!view)
         return nil;
@@ -211,45 +230,24 @@ UIView *BNFindFirstResponder(UIView *view) {
     return nil;
 }
 
+CGFloat BNLabelWidthForHeight(UILabel *label, CGFloat height) {
+    return [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(CGFLOAT_MAX, height) lineBreakMode:label.lineBreakMode].width;
+}
 
 CGPoint BNScrollViewContentOffsetToCenterRect(UIScrollView *scrollView, CGRect rect) {
-    UIEdgeInsets scrollViewContentInset = scrollView.contentInset;
-    CGPoint scrollViewContentOffset = scrollView.contentOffset;
-    CGRect scrollViewBounds = scrollView.bounds;
-    scrollViewBounds.origin.x -= scrollViewContentOffset.x;
-    scrollViewBounds.origin.y -= scrollViewContentOffset.y;
-    CGRect scrollViewContentRect = UIEdgeInsetsInsetRect(scrollViewBounds, scrollViewContentInset);
-    
-    CGPoint centerOfRectToCenter = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
-    CGPoint centerOfScrollViewContentRect = CGPointMake(CGRectGetMidX(scrollViewContentRect), CGRectGetMidY(scrollViewContentRect));
+
+    CGRectOffset(scrollView.bounds, -scrollView.contentOffset.x, -scrollView.contentOffset.y);
+    CGRect scrollViewContentRect = UIEdgeInsetsInsetRect(scrollView.bounds, scrollView.contentInset);
+
+    CGPoint centerOfRectToCenter = BNRectGetCenterPoint(rect);
+    CGPoint centerOfScrollViewContentRect = BNRectGetCenterPoint(scrollViewContentRect);
     CGPoint contentOffset = CGPointZero;
     contentOffset.x = centerOfRectToCenter.x - centerOfScrollViewContentRect.x;
     contentOffset.y = centerOfRectToCenter.y - centerOfScrollViewContentRect.y;
-//    contentOffset.x = (CGRectGetWidth(rect) - scrollViewContentSize.width) / 2;
-//    contentOffset.y = (scrollViewContentSize.height - CGRectGetHeight(rect)) / 4;
     return contentOffset;
 }
 
-
-CGPathRef BNRoundedRectPathCreate(CGRect rect, CGFloat cornerRadius) {
-    CGPoint min = CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect));
-    CGPoint mid = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
-    CGPoint max = CGPointMake(CGRectGetMaxX(rect), CGRectGetMaxY(rect));
-
-    CGMutablePathRef path = CGPathCreateMutable();
-
-    CGPathMoveToPoint(path, NULL, min.x, mid.y);
-    CGPathAddArcToPoint(path, NULL, min.x, min.y, mid.x, min.y, cornerRadius);
-    CGPathAddArcToPoint(path, NULL, max.x, min.y, max.x, mid.y, cornerRadius);
-    CGPathAddArcToPoint(path, NULL, max.x, max.y, mid.x, max.y, cornerRadius);
-    CGPathAddArcToPoint(path, NULL, min.x, max.y, min.x, mid.y, cornerRadius);
-
-    CGPathCloseSubpath(path);
-
-    return path;
-}
-
-
+#pragma mark Location Services and Helpers
 BOOL BNLocationCoordinate2DEqualToCooordinate2D(CLLocationCoordinate2D a, CLLocationCoordinate2D b) {
     if (a.longitude != b.longitude)
         return NO;
@@ -258,7 +256,7 @@ BOOL BNLocationCoordinate2DEqualToCooordinate2D(CLLocationCoordinate2D a, CLLoca
     return YES;
 }
 
-static const double deg2rad(double degrees) {
+static const inline double deg2rad(double degrees) {
     return degrees * M_PI / 180;
 }
 
@@ -282,42 +280,6 @@ double BNLocationCoordinate2DDistanceToCoordinate2D(CLLocationCoordinate2D a, CL
           ) * earthRadius;
 }
 
-
-CGFloat BNLabelWidthForHeight(UILabel *label, CGFloat height) {
-    return [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(CGFLOAT_MAX, height) lineBreakMode:label.lineBreakMode].width;
-}
-
-BOOL BNStringIsValidEmail(NSString* string) {
-    NSError* error = NULL;
-    NSRegularExpression* regex = [NSRegularExpression
-                                  regularExpressionWithPattern:@"^.+@.+\\..+$"
-                                  options:NSRegularExpressionCaseInsensitive
-                                  error:&error];
-    BOOL emailValid = string && ([regex numberOfMatchesInString:string options:0 range:NSMakeRange(0, [string length])] == 1);
-    return emailValid;
-}
-
-int BNRandomNumberDifferentFromNumber(int maxValue, int existingValue) {
-    if (maxValue < 1) {
-        return maxValue;
-    }
-    if (maxValue == 1) {
-        return (existingValue == 0) ? 1 : 0;
-    }
-
-    int nAttempt = 0;
-    while (nAttempt++ < 100) {
-        int n = RND_INT(maxValue + 1);
-        if (n != existingValue) {
-            return n;
-        }
-    }
-    return (existingValue < maxValue) ? (existingValue + 1) : (existingValue - 1);
-}
-
-void BNOffsetView(UIView *view, CGFloat x, CGFloat y) {
-    CGRect f = view.frame;
-    f.origin.x += x;
-    f.origin.y += y;
-    view.frame = f;
+inline void BNOffsetView(UIView *view, CGFloat x, CGFloat y) {
+    view.frame = CGRectOffset(view.frame, x, y);
 }
