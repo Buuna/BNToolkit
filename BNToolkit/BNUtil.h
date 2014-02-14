@@ -113,9 +113,6 @@ CGFloat BNLabelWidthForHeight(UILabel *label, CGFloat height);
 
 CGPoint BNScrollViewContentOffsetToCenterRect(UIScrollView *scrollView, CGRect rect);
 
-///// XXX copied from AFHTTPClient::AFBase64EncodedStringFromString - it's private there
-NSString * AFBase64EncodedStringFromData(NSData* data);
-
 BOOL BNStringIsValidEmail(NSString* string);
 
 int BNRandomNumberDifferentFromNumber(int maxValue, int existingValue);
