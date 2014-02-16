@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BNToolkit"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "A set of commonly used classes and utility functions."
   s.author       = { "dan" => "dan@buuna.com" }
   s.homepage     = 'https://github.com/Buuna/BNToolkit'
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 		        LICENSE
 		   }
   s.platform     = :ios, '6.0'
-  s.source       = { :git => "https://github.com/Buuna/BNToolkit.git", :tag => "0.0.2" }
+  s.source       = { :git => "https://github.com/Buuna/BNToolkit.git", :tag => "0.0.3" }
   s.public_header_files = 'BNToolkit/*.h'
   s.source_files  = 'BNToolkit/*'
   s.requires_arc = true
