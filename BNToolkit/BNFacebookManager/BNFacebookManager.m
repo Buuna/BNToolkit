@@ -3,7 +3,7 @@
 //  HappinessCycle
 //
 //  Created by Daniel Rodrigues on 17/10/13.
-//  Copyright (c) 2013 Wunderman Pty Ltd. All rights reserved.
+//  Copyright (c) 2013 Buuna Pty Ltd. All rights reserved.
 //
 
 #import "BNFacebookManager.h"
