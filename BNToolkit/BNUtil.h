@@ -1,6 +1,6 @@
 //
 //  BNUtil.h
-//  bluh
+//  Common Generic Utility Functions
 //
 //  Created by Scott Talbot on 24/11/11.
 //  Copyright (c) 2011 Wunderman Pty Ltd. All rights reserved.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-
+#pragma mark Macros
 #define COPY_STRING_IF_DIFFERENT(obj, x) do {\
         if (((obj.x != nil) && ![_##x isEqualToString:obj.x]) || ((obj.x == nil) && (_##x != nil))) {\
             [self willChangeValueForKey:@#x];\
@@ -37,20 +37,9 @@
         if (ivar != nil) [dict setObject:ivar forKey:key]; \
     } while (0)
 
-/*#define WRITE_STRING_IVAR_TO_DICT(dict, key, ivar) do {\
-        [dict setObject:((ivar) ? (ivar) : [NSNull null]) forKey:(key)]; \
-    } while (0)*/
-
 #define IS_OBJECT_EQUAL_TO_OBJECT(s1, s2) ( ((s1) == (s2)) || ([(s1) isEqual:(s2)]) )
 
-#define MAX_ARC4_RANDOM 4294967295UL
-#define RND(x) ((double)arc4random() / (double)MAX_ARC4_RANDOM * (x))
-#define RND_INT(x) (arc4random() % (u_int32_t)(x))
-
-#define BOOL_TO_STRING(bool) (bool ? @"true" : @"false")
-
-NSString *BNUUID(void);
-
+#pragma mark - Class Operations
 
 id BNEnsureKindOfClass(Class, id);
 
@@ -65,22 +54,30 @@ DECLARE_BNEnsure(NSString);
 #undef DECLARE_BNEnsure
 
 
+#pragma mark - Random Operations
+
+static const unsigned long MAX_ARC4_RANDOM = 4294967295UL;
+
+double BNRandDouble(double x);
+int BNRandInt(int x);
+int BNRandomNumberDifferentFromNumber(int maxValue, int existingValue);
+
+#pragma mark - Array Operations
+
 NSArray *BNArrayArrayByRemovingLastObject(NSArray *array);
-
 id BNArrayFirstObjectOrNil(NSArray *array);
-
 NSUInteger BNArrayIndexOfBestObjectUsingComparator(NSArray *array, NSComparator comparator);
 
+#pragma mark - String Operations
 
 NSString *BNStringStringByRemovingCharactersInSet(NSString *string, NSCharacterSet *characterSet);
-
 BOOL BNStringIsStringByRemovingLeadingAndTrailingSpacesEmpty(NSString *string);
+NSString *BNStringByRemovingSuffix(NSString *string, NSString *suffix);
+BOOL BNStringIsValidEmail(NSString* string);
+NSString *BNUUID(void);
+inline NSString * BNBoolToString(BOOL aBool);
 
-void BNRectDivide(CGRect rect, CGRect *slice, CGRect *remainder, CGFloat amount, CGRectEdge edge);
-
-CGPoint BNRectGetCenter(CGRect rect);
-
-CGRect BNRectScaleAspectFit(CGRect containingRect, CGRect rect);
+#pragma mark Rect Operations
 
 typedef enum BNRectAxis {
     BNRectAxisBoth = 3,
@@ -88,33 +85,30 @@ typedef enum BNRectAxis {
     BNRectAxisY = 2,
 } BNRectAxis;
 
-CGRect BNRectCenter(CGRect containingRect, CGRect rect);
-CGRect BNRectCenterOnAxis(CGRect containingRect, CGRect rect, BNRectAxis axis);
-
-
-NSString *BNStringByRemovingSuffix(NSString *string, NSString *suffix);
-
-UIImage *BNImageNamed(NSString *name);
-
-UIView *BNFindFirstSuperviewOfClass(UIView *, Class);
-UIView *BNFindFirstSubviewOfClass(UIView *, Class);
-
-UIView *BNFindFirstResponder(UIView *);
-
-
+void BNRectDivide(CGRect rect, CGRect *slice, CGRect *remainder, CGFloat amount, CGRectEdge edge);
+CGPoint BNRectGetCenterPoint(CGRect rect);
+CGRect BNRectScaleAspectFit(CGRect containingRect, CGRect rect);
+CGRect BNRectCenterRect(CGRect containingRect, CGRect rect);
+CGRect BNRectCenterRectOnAxis(CGRect containingRect, CGRect rect, BNRectAxis axis);
 CGPathRef BNRoundedRectPathCreate(CGRect rect, CGFloat cornerRadius);
 
 
-BOOL BNLocationCoordinate2DEqualToCooordinate2D(CLLocationCoordinate2D a, CLLocationCoordinate2D b);
-double BNLocationCoordinate2DDistanceToCoordinate2D(CLLocationCoordinate2D a, CLLocationCoordinate2D b);
+#pragma mark - UIView and Derivatives
 
-
+UIView *BNFindFirstSuperviewOfClass(UIView *, Class);
+UIView *BNFindFirstSubviewOfClass(UIView *, Class);
+UIView *BNFindFirstResponder(UIView *);
 CGFloat BNLabelWidthForHeight(UILabel *label, CGFloat height);
-
 CGPoint BNScrollViewContentOffsetToCenterRect(UIScrollView *scrollView, CGRect rect);
+inline void BNOffsetView(UIView *view, CGFloat x, CGFloat y);
 
-BOOL BNStringIsValidEmail(NSString* string);
+#pragma mark Location Services and Helpers
 
-int BNRandomNumberDifferentFromNumber(int maxValue, int existingValue);
+BOOL BNLocationCoordinate2DEqualToCoordinate2D(CLLocationCoordinate2D a, CLLocationCoordinate2D b);
+double BNLocationCoordinate2DDistanceToCoordinate2D(CLLocationCoordinate2D a, CLLocationCoordinate2D b);
+static const inline double deg2rad(double);
 
-void BNOffsetView(UIView *view, CGFloat x, CGFloat y);
+
+
+
+
