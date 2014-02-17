@@ -8,14 +8,20 @@
 
 #import "BNAppDelegate.h"
 
+#import "BNDemoMenu.h"
+
 @implementation BNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
+    UIViewController *rootVC = [[BNDemoMenu alloc] init];
+    UINavigationController *rootNVC = [[UINavigationController alloc] initWithRootViewController:rootVC];
+    self.window.rootViewController = rootNVC;
+
     return YES;
 }
 

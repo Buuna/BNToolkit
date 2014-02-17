@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3AA705F500155EB91B61687 /* BNDeviceUtilDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA7C9ABE3F9BAF6B32206E /* BNDeviceUtilDemo.m */; };
 		A3AA71A3F8B667DAEB13452D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3AA74D84823F2BFA8248430 /* Images.xcassets */; };
 		A3AA71A8E73BFD9993C66354 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3AA7A94BC27EFB2C36F13BF /* InfoPlist.strings */; };
 		A3AA72E93397F04F1317BC33 /* BNToolkitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA7CD302A151056D0921E6 /* BNToolkitTests.m */; };
@@ -17,6 +18,7 @@
 		A3AA75AEEA8B1A3149313FDB /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A3AA77E56B6553857364215E /* Podfile */; };
 		A3AA77701F1196470576804F /* BNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA77865E54A95CBC8218C2 /* BNAppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3AA782C9C2CF2024BC3D7A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA70B04BA728ACE8FB2A76 /* Foundation.framework */; };
+		A3AA78729AE0559B32E7F69E /* BNDemoMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA7C960F5AA69BE229393D /* BNDemoMenu.m */; };
 		A3AA78BFC5020099FB113CB5 /* BNFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA7D25D234E39C976B09A2 /* BNFacebookManager.m */; };
 		A3AA78DA3784615C99282170 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA7DD6545C5CD4A8550A2E /* XCTest.framework */; };
 		A3AA79832D83B0C2BC2B05C0 /* BNUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA72934B3E31AC1B199DB6 /* BNUtil.m */; };
@@ -41,6 +43,7 @@
 		8A7696BF6A3E492DB8522440 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3AA70B04BA728ACE8FB2A76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3AA72934B3E31AC1B199DB6 /* BNUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNUtil.m; sourceTree = "<group>"; };
+		A3AA72F9AA3CDFC28B58DB61 /* BNDeviceUtilDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDeviceUtilDemo.h; sourceTree = "<group>"; };
 		A3AA739E670441F06B088859 /* BNToolkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BNToolkit-Prefix.pch"; sourceTree = "<group>"; };
 		A3AA746B39CB8848164E7FBD /* BNFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFacebookManager.h; sourceTree = "<group>"; };
 		A3AA74CD519AC1E78BBD05EC /* BNToolkit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "BNToolkit-Info.plist"; sourceTree = "<group>"; };
@@ -52,8 +55,11 @@
 		A3AA77E56B6553857364215E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		A3AA78102C728E9D2BCAF2E6 /* BNDeviceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDeviceUtil.m; sourceTree = "<group>"; };
 		A3AA790CEF71E0CD14721315 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A3AA79C07E19FEB34E4C970B /* BNDemoMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDemoMenu.h; sourceTree = "<group>"; };
 		A3AA7B3159747815D393E61B /* BNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNAppDelegate.h; sourceTree = "<group>"; };
 		A3AA7C75BF2D1B8C2C8BE5CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A3AA7C960F5AA69BE229393D /* BNDemoMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDemoMenu.m; sourceTree = "<group>"; };
+		A3AA7C9ABE3F9BAF6B32206E /* BNDeviceUtilDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDeviceUtilDemo.m; sourceTree = "<group>"; };
 		A3AA7CD302A151056D0921E6 /* BNToolkitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNToolkitTests.m; sourceTree = "<group>"; };
 		A3AA7CECAA2AC96CE494F72E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3AA7D1BF520C72E7F659647 /* BNDeviceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDeviceUtil.h; sourceTree = "<group>"; };
@@ -130,6 +136,7 @@
 				A3AA7B3159747815D393E61B /* BNAppDelegate.h */,
 				A3AA77865E54A95CBC8218C2 /* BNAppDelegate.m */,
 				A3AA74D84823F2BFA8248430 /* Images.xcassets */,
+				A3AA7F9524DDDDDDBB5760F8 /* UI */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -182,6 +189,17 @@
 				A3AA74E3128903B08846072D /* BNToolkitTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A3AA7F9524DDDDDDBB5760F8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A3AA7C960F5AA69BE229393D /* BNDemoMenu.m */,
+				A3AA79C07E19FEB34E4C970B /* BNDemoMenu.h */,
+				A3AA7C9ABE3F9BAF6B32206E /* BNDeviceUtilDemo.m */,
+				A3AA72F9AA3CDFC28B58DB61 /* BNDeviceUtilDemo.h */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +334,8 @@
 				A3AA79832D83B0C2BC2B05C0 /* BNUtil.m in Sources */,
 				A3AA78BFC5020099FB113CB5 /* BNFacebookManager.m in Sources */,
 				A3AA732649AC2090ABA6EFE3 /* BNDeviceUtil.m in Sources */,
+				A3AA78729AE0559B32E7F69E /* BNDemoMenu.m in Sources */,
+				A3AA705F500155EB91B61687 /* BNDeviceUtilDemo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

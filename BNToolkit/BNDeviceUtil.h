@@ -1,15 +1,14 @@
 //
 //  BNDeviceUtil.h
 //
-//
 //  Created by Daniel Rodrigues on 27/06/13.
 //  Copyright (c) 2013 Buuna Pty Ltd. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#define IS_RETINA ([BNDeviceUtil sharedInstance].isRetina)
-#define IS_IPHONE5 ([BNDeviceUtil sharedInstance].is4Inch)
+#define IS_RETINA ([BNDeviceUtil sharedUtil].isRetina)
+#define IS_IPHONE5 ([BNDeviceUtil sharedUtil].is4Inch)
 
 @interface BNDeviceUtil : NSObject
 
