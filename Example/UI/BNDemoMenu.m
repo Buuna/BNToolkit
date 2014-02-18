@@ -6,6 +6,7 @@
 #import "BNDemoMenu.h"
 
 #import "BNDeviceUtilDemo.h"
+#import "BNKeyboardHelperDemo.h"
 
 @interface BNDemoMenu () <UITableViewDataSource, UITableViewDelegate> {
     UITableView *_tableView;
@@ -21,7 +22,8 @@
         self.title = @"Demo";
 
         _options = @[
-                @"BNDeviceUtil", [BNDeviceUtilDemo class]
+                @"BNDeviceUtil", [BNDeviceUtilDemo class],
+                @"BNKeyboardHelper", [BNKeyboardHelperDemo class]
         ];
     }
 

@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A3AA705F500155EB91B61687 /* BNDeviceUtilDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA7C9ABE3F9BAF6B32206E /* BNDeviceUtilDemo.m */; };
 		A3AA71A3F8B667DAEB13452D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3AA74D84823F2BFA8248430 /* Images.xcassets */; };
 		A3AA71A8E73BFD9993C66354 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3AA7A94BC27EFB2C36F13BF /* InfoPlist.strings */; };
+		A3AA722B6BCE6FB22AB70EA4 /* BNKeyboardHelperDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA7A08C8229C3795F28BB5 /* BNKeyboardHelperDemo.m */; };
 		A3AA72E93397F04F1317BC33 /* BNToolkitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA7CD302A151056D0921E6 /* BNToolkitTests.m */; };
 		A3AA732649AC2090ABA6EFE3 /* BNDeviceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA78102C728E9D2BCAF2E6 /* BNDeviceUtil.m */; };
 		A3AA7353628C41798194E561 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA7F57F5CE5FAC5039E9B0 /* CoreGraphics.framework */; };
 		A3AA7360584CA68D5DB80904 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA7CECAA2AC96CE494F72E /* UIKit.framework */; };
+		A3AA73DE6F2AC07E12A40A14 /* BNDemoMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA74B3FF3590A6963CACFB /* BNDemoMenu.m */; };
 		A3AA74941E2C2583A8B96E5C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA7CECAA2AC96CE494F72E /* UIKit.framework */; };
 		A3AA75AEEA8B1A3149313FDB /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A3AA77E56B6553857364215E /* Podfile */; };
 		A3AA77701F1196470576804F /* BNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA77865E54A95CBC8218C2 /* BNAppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3AA782C9C2CF2024BC3D7A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA70B04BA728ACE8FB2A76 /* Foundation.framework */; };
-		A3AA78729AE0559B32E7F69E /* BNDemoMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA7C960F5AA69BE229393D /* BNDemoMenu.m */; };
 		A3AA78BFC5020099FB113CB5 /* BNFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA7D25D234E39C976B09A2 /* BNFacebookManager.m */; };
 		A3AA78DA3784615C99282170 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA7DD6545C5CD4A8550A2E /* XCTest.framework */; };
 		A3AA79832D83B0C2BC2B05C0 /* BNUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA72934B3E31AC1B199DB6 /* BNUtil.m */; };
 		A3AA79BA0C9D1EE9C4953CD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA790CEF71E0CD14721315 /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3AA7CA078F7368A0C1E56A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3AA73DEA5E8BE2833A4B925 /* InfoPlist.strings */; };
+		A3AA7D95AEE4666798E4A40B /* BNKeyboardHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA73ECA6F06950C5D986EA /* BNKeyboardHelper.m */; };
+		A3AA7E04A045319E7B13E3F2 /* BNDeviceUtilDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA75484C0407772ABBD0F6 /* BNDeviceUtilDemo.m */; };
 		A3AA7ED9BEA4E056F1D559E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA70B04BA728ACE8FB2A76 /* Foundation.framework */; };
 		D5FB5E97A3DB402995929D2B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7696BF6A3E492DB8522440 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -43,28 +45,32 @@
 		8A7696BF6A3E492DB8522440 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3AA70B04BA728ACE8FB2A76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3AA72934B3E31AC1B199DB6 /* BNUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNUtil.m; sourceTree = "<group>"; };
-		A3AA72F9AA3CDFC28B58DB61 /* BNDeviceUtilDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDeviceUtilDemo.h; sourceTree = "<group>"; };
 		A3AA739E670441F06B088859 /* BNToolkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BNToolkit-Prefix.pch"; sourceTree = "<group>"; };
+		A3AA73ECA6F06950C5D986EA /* BNKeyboardHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNKeyboardHelper.m; sourceTree = "<group>"; };
 		A3AA746B39CB8848164E7FBD /* BNFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFacebookManager.h; sourceTree = "<group>"; };
+		A3AA74B3FF3590A6963CACFB /* BNDemoMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDemoMenu.m; sourceTree = "<group>"; };
 		A3AA74CD519AC1E78BBD05EC /* BNToolkit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "BNToolkit-Info.plist"; sourceTree = "<group>"; };
 		A3AA74D84823F2BFA8248430 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A3AA74E3128903B08846072D /* BNToolkitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BNToolkitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3AA75484C0407772ABBD0F6 /* BNDeviceUtilDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDeviceUtilDemo.m; sourceTree = "<group>"; };
+		A3AA75589C0F89094387079E /* BNKeyboardHelperDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNKeyboardHelperDemo.h; sourceTree = "<group>"; };
 		A3AA763095AB55E3E643AFAB /* BNToolkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BNToolkit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3AA76B150B65726729A37F3 /* BNUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNUtil.h; sourceTree = "<group>"; };
 		A3AA77865E54A95CBC8218C2 /* BNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNAppDelegate.m; sourceTree = "<group>"; };
 		A3AA77E56B6553857364215E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		A3AA7807406BC57679CA2189 /* BNKeyboardHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNKeyboardHelper.h; sourceTree = "<group>"; };
 		A3AA78102C728E9D2BCAF2E6 /* BNDeviceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDeviceUtil.m; sourceTree = "<group>"; };
 		A3AA790CEF71E0CD14721315 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A3AA79C07E19FEB34E4C970B /* BNDemoMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDemoMenu.h; sourceTree = "<group>"; };
+		A3AA793D92363EBDF8DBCDCF /* BNDemoMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDemoMenu.h; sourceTree = "<group>"; };
+		A3AA7A08C8229C3795F28BB5 /* BNKeyboardHelperDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNKeyboardHelperDemo.m; sourceTree = "<group>"; };
 		A3AA7B3159747815D393E61B /* BNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNAppDelegate.h; sourceTree = "<group>"; };
 		A3AA7C75BF2D1B8C2C8BE5CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A3AA7C960F5AA69BE229393D /* BNDemoMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDemoMenu.m; sourceTree = "<group>"; };
-		A3AA7C9ABE3F9BAF6B32206E /* BNDeviceUtilDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDeviceUtilDemo.m; sourceTree = "<group>"; };
 		A3AA7CD302A151056D0921E6 /* BNToolkitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNToolkitTests.m; sourceTree = "<group>"; };
 		A3AA7CECAA2AC96CE494F72E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3AA7D1BF520C72E7F659647 /* BNDeviceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDeviceUtil.h; sourceTree = "<group>"; };
 		A3AA7D25D234E39C976B09A2 /* BNFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFacebookManager.m; sourceTree = "<group>"; };
 		A3AA7DD6545C5CD4A8550A2E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A3AA7DEEB2965E9826E51A8D /* BNDeviceUtilDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDeviceUtilDemo.h; sourceTree = "<group>"; };
 		A3AA7DF7A05E7BCCC8ED6428 /* BNToolkitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "BNToolkitTests-Info.plist"; sourceTree = "<group>"; };
 		A3AA7E038930CA50D9050F3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A3AA7F57F5CE5FAC5039E9B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -103,6 +109,7 @@
 				A3AA70C2CF77910340CF1DEC /* BNFacebookManager */,
 				A3AA7D1BF520C72E7F659647 /* BNDeviceUtil.h */,
 				A3AA78102C728E9D2BCAF2E6 /* BNDeviceUtil.m */,
+				A3AA7233ED149C2667C3B192 /* BNKeyboardHelper */,
 			);
 			path = BNToolkit;
 			sourceTree = "<group>";
@@ -114,6 +121,15 @@
 				A3AA7D25D234E39C976B09A2 /* BNFacebookManager.m */,
 			);
 			path = BNFacebookManager;
+			sourceTree = "<group>";
+		};
+		A3AA7233ED149C2667C3B192 /* BNKeyboardHelper */ = {
+			isa = PBXGroup;
+			children = (
+				A3AA7807406BC57679CA2189 /* BNKeyboardHelper.h */,
+				A3AA73ECA6F06950C5D986EA /* BNKeyboardHelper.m */,
+			);
+			path = BNKeyboardHelper;
 			sourceTree = "<group>";
 		};
 		A3AA725A33E25A4CD1A94C61 = {
@@ -191,13 +207,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A3AA7F6284B073ED3DFCE739 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				A3AA7A08C8229C3795F28BB5 /* BNKeyboardHelperDemo.m */,
+				A3AA75589C0F89094387079E /* BNKeyboardHelperDemo.h */,
+				A3AA75484C0407772ABBD0F6 /* BNDeviceUtilDemo.m */,
+				A3AA7DEEB2965E9826E51A8D /* BNDeviceUtilDemo.h */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		A3AA7F9524DDDDDDBB5760F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				A3AA7C960F5AA69BE229393D /* BNDemoMenu.m */,
-				A3AA79C07E19FEB34E4C970B /* BNDemoMenu.h */,
-				A3AA7C9ABE3F9BAF6B32206E /* BNDeviceUtilDemo.m */,
-				A3AA72F9AA3CDFC28B58DB61 /* BNDeviceUtilDemo.h */,
+				A3AA793D92363EBDF8DBCDCF /* BNDemoMenu.h */,
+				A3AA74B3FF3590A6963CACFB /* BNDemoMenu.m */,
+				A3AA7F6284B073ED3DFCE739 /* Demo */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -334,8 +360,10 @@
 				A3AA79832D83B0C2BC2B05C0 /* BNUtil.m in Sources */,
 				A3AA78BFC5020099FB113CB5 /* BNFacebookManager.m in Sources */,
 				A3AA732649AC2090ABA6EFE3 /* BNDeviceUtil.m in Sources */,
-				A3AA78729AE0559B32E7F69E /* BNDemoMenu.m in Sources */,
-				A3AA705F500155EB91B61687 /* BNDeviceUtilDemo.m in Sources */,
+				A3AA7D95AEE4666798E4A40B /* BNKeyboardHelper.m in Sources */,
+				A3AA73DE6F2AC07E12A40A14 /* BNDemoMenu.m in Sources */,
+				A3AA722B6BCE6FB22AB70EA4 /* BNKeyboardHelperDemo.m in Sources */,
+				A3AA7E04A045319E7B13E3F2 /* BNDeviceUtilDemo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

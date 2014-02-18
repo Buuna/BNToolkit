@@ -7,12 +7,6 @@
 
 #import "BNDeviceUtil.h"
 
-@interface BNDeviceUtilDemo () {
-
-}
-
-@end
-
 @implementation BNDeviceUtilDemo
 
 - (id)init {
