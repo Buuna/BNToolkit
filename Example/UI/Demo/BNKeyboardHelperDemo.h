@@ -5,6 +5,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BNKeyboardHelperDemo : UIViewController
+@interface BNKeyboardHelperDemo : UIViewController <UITextFieldDelegate>
 
 @end
