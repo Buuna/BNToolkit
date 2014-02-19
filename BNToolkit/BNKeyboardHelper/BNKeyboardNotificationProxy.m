@@ -84,8 +84,6 @@ static BNKeyboardNotificationProxy *_sharedProxy;
     [self.observers removeObject:[BNKeyboardNotificationProxyContainer containerWithScrollView:scrollView]];
 }
 
-#pragma mark - UIKeyboard observer event dispatch
-
 - (void)_keyboardWillAppearOrDisappear:(NSNotification *)note {
     [self.observers enumerateObjectsUsingBlock:^(BNKeyboardNotificationProxyContainer *container, BOOL *stop) {
         [BNKeyboardHelper adjustContentInsetOfScrollView:(container.scrollView) forKeyboardNotification:note];
