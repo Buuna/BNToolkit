@@ -5,9 +5,7 @@
 
 #import "BNKeyboardHelperDemo.h"
 
-#import "BNKeyboardHelper.h"
-
-#import "BNUtil.h"
+#import "BNKeyboardNotificationProxy.h"
 
 @implementation BNKeyboardHelperDemo  {
     UIScrollView *_scrollView;
@@ -20,12 +18,6 @@
 
     return self;
 }
-
-//Apple TN2154
-//https://developer.apple.com/library/ios/technotes/tn2154/_index.html
-
-//Masonry example:
-//https://github.com/cloudkite/Masonry/blob/master/Examples/Masonry%20iOS%20Examples/MASExampleScrollView.m
 
 - (void)loadView {
     self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -45,25 +37,25 @@
         make.width.equalTo(_scrollView.width);
     }];
 
-    //upper field
-    UITextField *field = [[UITextField alloc] init];
-    field.textColor = [UIColor blackColor];
-    field.borderStyle = UITextBorderStyleLine;
-    field.delegate = self;
-    [contentView addSubview:field];
-    [field makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@0);
-        make.left.equalTo(@0);
-        make.width.equalTo(contentView.width);
-        make.height.equalTo(@20);
+    //upper upperField
+    UITextField *upperField = [[UITextField alloc] init];
+    upperField.textColor = [UIColor blackColor];
+    upperField.borderStyle = UITextBorderStyleLine;
+    upperField.delegate = self;
+    [contentView addSubview:upperField];
+    [upperField makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@10);
+        make.left.equalTo(contentView.left).with.offset(10);
+        make.right.equalTo(contentView.right).with.offset(-10);
+        make.height.equalTo(@44);
     }];
 
     //dummy view serving no purpose but to occupy space for scrolling
     UIView *spaceView = [[UIView alloc] init];
-    spaceView.backgroundColor = [UIColor orangeColor];
+    spaceView.backgroundColor = [UIColor whiteColor];
     [contentView addSubview:spaceView];
     [spaceView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(field.bottom);
+        make.top.equalTo(upperField.bottom);
         make.left.equalTo(@0);
         make.width.equalTo(contentView.width);
         make.height.equalTo(@600);
@@ -86,9 +78,9 @@
     [contentView addSubview:lowerField ];
     [lowerField  makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(spaceView.bottom);
-        make.left.equalTo(@0);
-        make.width.equalTo(contentView.width);
-        make.height.equalTo(@20);
+        make.left.equalTo(contentView.left).with.offset(10);
+        make.right.equalTo(contentView.right).with.offset(-10);
+        make.height.equalTo(upperField.height);
     }];
 
     //sizing view required to determine content view size
@@ -96,7 +88,7 @@
     [_scrollView addSubview:sizingView];
     [sizingView makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(lowerField.bottom);
-        make.bottom.equalTo(contentView.bottom);
+        make.bottom.equalTo(contentView.bottom).with.offset(-10);
     }];
 }
 
@@ -112,28 +104,13 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[BNKeyboardNotificationProxy sharedProxy] addKeyboardOffsetObserverForScrollView:_scrollView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark - Keyboard handling
-
-//TODO: refactor this into reusable blob (provide helper method with scrollview instance...)
-- (void)_keyboardWillShow:(NSNotification *)note {
-    UIScrollView *scrollView = _scrollView;
-
-    UIView *firstResponder = BNFindFirstResponder(scrollView);
-    [BNKeyboardHelper adjustContentInsetOfScrollView:(scrollView) withAdditionalAnimations:nil forKeyboardNotification:note];
-}
-
-- (void)_keyboardWillHide:(NSNotification *)note {
-    [BNKeyboardHelper adjustContentInsetOfScrollView:_scrollView forKeyboardNotification:note];
+    [[BNKeyboardNotificationProxy sharedProxy] removeKeyboardOffsetObserverForScrollView:_scrollView];
 }
 
 @end

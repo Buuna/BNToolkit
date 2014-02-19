@@ -7,7 +7,6 @@
 
 #import "BNKeyboardHelper.h"
 
-
 static UIViewAnimationOptions UIViewAnimationCurveOption(UIViewAnimationCurve curve) {
     switch (curve) {
         case UIViewAnimationCurveEaseInOut:

@@ -23,6 +23,7 @@
 		A3AA78DA3784615C99282170 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA7DD6545C5CD4A8550A2E /* XCTest.framework */; };
 		A3AA79832D83B0C2BC2B05C0 /* BNUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA72934B3E31AC1B199DB6 /* BNUtil.m */; };
 		A3AA79BA0C9D1EE9C4953CD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA790CEF71E0CD14721315 /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3AA7C43E86481738ED8CB77 /* BNKeyboardNotificationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA77F15B4FE98A9FACC7CD /* BNKeyboardNotificationProxy.m */; };
 		A3AA7CA078F7368A0C1E56A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3AA73DEA5E8BE2833A4B925 /* InfoPlist.strings */; };
 		A3AA7D95AEE4666798E4A40B /* BNKeyboardHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA73ECA6F06950C5D986EA /* BNKeyboardHelper.m */; };
 		A3AA7E04A045319E7B13E3F2 /* BNDeviceUtilDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AA75484C0407772ABBD0F6 /* BNDeviceUtilDemo.m */; };
@@ -58,6 +59,7 @@
 		A3AA76B150B65726729A37F3 /* BNUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNUtil.h; sourceTree = "<group>"; };
 		A3AA77865E54A95CBC8218C2 /* BNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNAppDelegate.m; sourceTree = "<group>"; };
 		A3AA77E56B6553857364215E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		A3AA77F15B4FE98A9FACC7CD /* BNKeyboardNotificationProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNKeyboardNotificationProxy.m; sourceTree = "<group>"; };
 		A3AA7807406BC57679CA2189 /* BNKeyboardHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNKeyboardHelper.h; sourceTree = "<group>"; };
 		A3AA78102C728E9D2BCAF2E6 /* BNDeviceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNDeviceUtil.m; sourceTree = "<group>"; };
 		A3AA790CEF71E0CD14721315 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		A3AA7D1BF520C72E7F659647 /* BNDeviceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDeviceUtil.h; sourceTree = "<group>"; };
 		A3AA7D25D234E39C976B09A2 /* BNFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFacebookManager.m; sourceTree = "<group>"; };
 		A3AA7DD6545C5CD4A8550A2E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A3AA7DE5B73D6BB7324107CA /* BNKeyboardNotificationProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNKeyboardNotificationProxy.h; sourceTree = "<group>"; };
 		A3AA7DEEB2965E9826E51A8D /* BNDeviceUtilDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNDeviceUtilDemo.h; sourceTree = "<group>"; };
 		A3AA7DF7A05E7BCCC8ED6428 /* BNToolkitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "BNToolkitTests-Info.plist"; sourceTree = "<group>"; };
 		A3AA7E038930CA50D9050F3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 			children = (
 				A3AA7807406BC57679CA2189 /* BNKeyboardHelper.h */,
 				A3AA73ECA6F06950C5D986EA /* BNKeyboardHelper.m */,
+				A3AA77F15B4FE98A9FACC7CD /* BNKeyboardNotificationProxy.m */,
+				A3AA7DE5B73D6BB7324107CA /* BNKeyboardNotificationProxy.h */,
 			);
 			path = BNKeyboardHelper;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 				A3AA73DE6F2AC07E12A40A14 /* BNDemoMenu.m in Sources */,
 				A3AA722B6BCE6FB22AB70EA4 /* BNKeyboardHelperDemo.m in Sources */,
 				A3AA7E04A045319E7B13E3F2 /* BNDeviceUtilDemo.m in Sources */,
+				A3AA7C43E86481738ED8CB77 /* BNKeyboardNotificationProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
