@@ -12,7 +12,7 @@
 static BNDeviceUtil *_sharedUtil;
 
 + (void)initialize {
-    _sharedUtil = [[BNDeviceUtil alloc] init];
+    _sharedUtil = [[self alloc] init];
 }
 
 + (instancetype)sharedUtil {

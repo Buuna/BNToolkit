@@ -21,7 +21,7 @@ static BNFacebookManager *_sharedManager;
 @implementation BNFacebookManager
 
 + (void)initialize {
-    _sharedManager = [[BNFacebookManager alloc] init];
+    _sharedManager = [[self alloc] init];
 }
 
 + (BNFacebookManager *)sharedManager {

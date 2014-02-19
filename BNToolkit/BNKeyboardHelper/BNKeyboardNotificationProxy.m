@@ -16,7 +16,7 @@
 @implementation BNKeyboardNotificationProxyContainer
 
 + (instancetype)containerWithScrollView:(UIScrollView *)scrollView {
-    return [[[self class] alloc] initWithScrollView:scrollView];
+    return [[self alloc] initWithScrollView:scrollView];
 }
 
 - (id)initWithScrollView:(UIScrollView *)scrollView {
@@ -54,7 +54,7 @@
 static BNKeyboardNotificationProxy *_sharedProxy;
 
 + (void)initialize {
-    _sharedProxy = [[[self class] alloc] init];
+    _sharedProxy = [[self alloc] init];
 }
 
 + (instancetype)sharedProxy {
