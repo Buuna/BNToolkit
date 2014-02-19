@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BNToolkit"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "A set of commonly used classes and utility functions."
   s.author       = { "dan" => "dan@buuna.com" }
   s.homepage     = 'https://github.com/Buuna/BNToolkit'
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 		        LICENSE
 		   }
   s.platform     = :ios, '6.0'
-  s.source       = { :git => "https://github.com/Buuna/BNToolkit.git", :tag => "0.0.4" }
+  s.source       = { :git => "https://github.com/Buuna/BNToolkit", :tag => "#{s.version}" }
   s.public_header_files = 'BNToolkit/*.h'
   s.source_files  = 'BNToolkit/*'
   s.requires_arc = true
@@ -20,5 +20,14 @@ Pod::Spec.new do |s|
     fb.public_header_files = 'BNToolkit/BNFacebookManager/*.h'
   end
 
+  s.subspec 'KeyboardHelper' do |kbh|
+    kbh.source_files = 'BNToolkit/BNKeyboardHelper/*'
+    kbh.public_header_files = 'BNToolkit/BNKeyboardHelper/*.h'
+  end
+
+  s.subspec 'DeviceUtil' do |du|
+    du.source_files = 'BNToolkit/BNDeviceUtil/*'
+    du.public_header_files = 'BNToolkit/BNDeviceUtil/*.h'
+  end
 end
 
