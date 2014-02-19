@@ -99,7 +99,8 @@
     return YES;
 }
 
-#pragma mark - UIViewController life cycle methods for keyboard
+#pragma mark - UIViewController life cycle methods for keyboard handling
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
