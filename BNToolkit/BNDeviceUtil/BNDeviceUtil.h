@@ -7,16 +7,14 @@
 
 #import <Foundation/Foundation.h>
 
-#define IS_RETINA ([BNDeviceUtil sharedUtil].isRetina)
-#define IS_IPHONE5 ([BNDeviceUtil sharedUtil].is4Inch)
+#define IS_RETINA ([BNDeviceUtil isRetina])
+#define IS_IPHONE5 ([BNDeviceUtil is4Inch])
 
 @interface BNDeviceUtil : NSObject
 
-+ (instancetype)sharedUtil;
-
-@property(nonatomic, readonly) BOOL isRetina;
-@property(nonatomic, readonly) CGFloat scale;
-@property(nonatomic, readonly) BOOL is4Inch;
-@property(nonatomic, readonly) CGSize screenSize;
++(BOOL) isRetina;
++(CGFloat) scale;
++(BOOL) is4Inch;
++(CGSize) screenSize;
 
 @end
