@@ -3,7 +3,7 @@
 //  Common Generic Utility Functions
 //
 //  Created by Scott Talbot on 24/11/11.
-//  Copyright (c) 2011 Wunderman Pty Ltd. All rights reserved.
+//  Copyright (c) 2014 Buuna Pty Ltd. All rights reserved.
 //
 
 #import "BNUtil.h"
@@ -53,9 +53,6 @@ int BNRandInt(int x) {
 double BNRandDouble(double x) {
     return ((double)arc4random() / (double)MAX_ARC4_RANDOM * (x));
 }
-
-
-
 
 #pragma mark - Array Operations
 NSArray *BNArrayArrayByRemovingLastObject(NSArray *array_) {

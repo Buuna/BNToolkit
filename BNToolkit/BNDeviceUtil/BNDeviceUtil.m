@@ -9,26 +9,34 @@
 
 @implementation BNDeviceUtil
 
-static BNDeviceUtil *_sharedUtil;
+static UIScreen * screen;
+static BOOL isRetina;
+static CGFloat scale;
+static BOOL is4inch;
+static CGSize screensize;
 
 + (void)initialize {
-    _sharedUtil = [[self alloc] init];
+    screen = [UIScreen mainScreen];
+    isRetina =  ([screen scale] == 2.0);
+    scale = (isRetina ? 2.0 : 1.0);
+    screensize = [screen bounds].size;
+    is4inch = (screensize.height == 568);
 }
 
-+ (instancetype)sharedUtil {
-    return _sharedUtil;
++ (BOOL)isRetina {
+    return isRetina;
 }
 
-- (id)init {
-    if((self = [super init])) {
-        UIScreen *screen = [UIScreen mainScreen];
-        _isRetina = ([screen scale] == 2.0);
-        _scale = (self.isRetina ? 2.0 : 1.0);
-        _screenSize = [screen bounds].size;
-        _is4Inch = (_screenSize.height == 568);
-    }
++ (CGFloat)scale {
+    return scale;
+}
 
-    return self;
++ (BOOL)is4Inch {
+    return is4inch;
+}
+
++ (CGSize)screenSize {
+    return screensize;
 }
 
 @end

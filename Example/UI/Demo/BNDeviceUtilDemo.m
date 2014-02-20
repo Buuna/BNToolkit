@@ -21,11 +21,10 @@
     self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.view.backgroundColor = [UIColor whiteColor];
 
-    BNDeviceUtil *util = [BNDeviceUtil sharedUtil];
     NSMutableString *output = [NSMutableString string];
-    [output appendFormat:@"Retina: %@\n", (util.isRetina ? @"Yes" : @"No")];
-    [output appendFormat:@"4-inch: %@\n", (util.is4Inch ? @"Yes" : @"No")];
-    [output appendFormat:@"Dimensions: %@\n", NSStringFromCGSize(util.screenSize)];
+    [output appendFormat:@"Retina: %@\n", ([BNDeviceUtil isRetina] ? @"Yes" : @"No")];
+    [output appendFormat:@"4-inch: %@\n", ([BNDeviceUtil is4Inch] ? @"Yes" : @"No")];
+    [output appendFormat:@"Dimensions: %@\n", NSStringFromCGSize([BNDeviceUtil screenSize])];
 
     UILabel *outputLabel = [[UILabel alloc] init];
     outputLabel.textColor = [UIColor blackColor];

@@ -3,7 +3,7 @@
 //  Common Generic Utility Functions
 //
 //  Created by Scott Talbot on 24/11/11.
-//  Copyright (c) 2011 Wunderman Pty Ltd. All rights reserved.
+//  Copyright (c) 2014 Buuna Pty Ltd. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
