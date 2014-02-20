@@ -1,6 +1,5 @@
 //
 //  BNFacebookManager.h
-//  HappinessCycle
 //
 //  Created by Daniel Rodrigues on 17/10/13.
 //  Copyright (c) 2013 Buuna Pty Ltd. All rights reserved.

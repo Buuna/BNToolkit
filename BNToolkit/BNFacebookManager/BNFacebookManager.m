@@ -1,6 +1,5 @@
 //
 //  BNFacebookManager.m
-//  HappinessCycle
 //
 //  Created by Daniel Rodrigues on 17/10/13.
 //  Copyright (c) 2013 Buuna Pty Ltd. All rights reserved.
@@ -97,9 +96,9 @@ static BNFacebookManager *_sharedManager;
                                   handler:^(FBAppCall *call, NSDictionary *results, NSError *error)
      {
          if(error) {
-             NSLog(@"Error: %@", error.description);
+             NSLog(@"failed to present share link with error: %@", error.description);
          } else {
-             NSLog(@"Success!");
+             NSLog(@"successfully presented share link");
          }
      }];
 }
@@ -122,7 +121,6 @@ static BNFacebookManager *_sharedManager;
                 [_facebookLock unlockWithCondition:BNFacebookStateIdle];
             }
             break;
-            //case FBSessionStateClosed:
         case FBSessionStateClosedLoginFailed:
             [FBSession.activeSession closeAndClearTokenInformation];
             [_facebookLock unlockWithCondition:BNFacebookStateIdle];
