@@ -141,8 +141,6 @@ static const int loopRandomCases = 5000;
                                               options:NSRegularExpressionAnchorsMatchLines
                                                 error:nil];
     NSString * uuid = BNUUID();
-    NSLog(uuid);
-    
     NSUInteger matches = [regex numberOfMatchesInString:uuid options:0 range:NSMakeRange(0, [uuid length])];
     
     expect(matches).equal(1);
