@@ -65,7 +65,6 @@ int BNRandomNumberDifferentFromNumber(int maxValue, int existingValue);
 #pragma mark - Array Operations
 
 NSArray *BNArrayArrayByRemovingLastObject(NSArray *array);
-id BNArrayFirstObjectOrNil(NSArray *array);
 NSUInteger BNArrayIndexOfBestObjectUsingComparator(NSArray *array, NSComparator comparator);
 
 #pragma mark - String Operations

@@ -61,13 +61,6 @@ NSArray *BNArrayArrayByRemovingLastObject(NSArray *array_) {
     return array;
 }
 
-id BNArrayFirstObjectOrNil(NSArray *array) {
-    if ([array count] > 0)
-        return [array objectAtIndex:0];
-    return nil;
-}
-
-
 NSUInteger BNArrayIndexOfBestObjectUsingComparator(NSArray *array, NSComparator comparator) {
     NSArray *sortedArray = [array sortedArrayUsingComparator:comparator];
     if ([sortedArray count] > 0)
