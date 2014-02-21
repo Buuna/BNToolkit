@@ -8,7 +8,7 @@ $APP_SCHEME_NAME = "BNToolkit"
 namespace :test do
   task :test do
     validate_file_and_fallback
-    $test_success = system("xctool -#{$file_command} '#{$APP_WORKSPACE_NAME}.#{$file_extension}' -scheme '#{$APP_SCHEME_NAME}' -sdk iphonesimulator test")
+    $test_success = system("/usr/local/bin/xctool -#{$file_command} '#{$APP_WORKSPACE_NAME}.#{$file_extension}' -scheme '#{$APP_SCHEME_NAME}' -sdk iphonesimulator test")
   end
   
 end
@@ -16,7 +16,7 @@ end
 namespace :build do
   task :build do
     validate_file_and_fallback
-    $build_success = system("xctool -#{$file_command} '#{$APP_WORKSPACE_NAME}.#{$file_extension}' -scheme '#{$APP_SCHEME_NAME}' -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO")
+    $build_success = system("/usr/local/bin/xctool -#{$file_command} '#{$APP_WORKSPACE_NAME}.#{$file_extension}' -scheme '#{$APP_SCHEME_NAME}' -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO")
   end
   
   task :ipa do
@@ -26,9 +26,9 @@ namespace :build do
       next
     end
 
-    puts "\033[0;33m*********************"
-    puts "\033[0;33m* Creating your ipa *"
-    puts "\033[0;33m*********************"
+    puts "\033[0;33m****************************************"
+    puts "\033[0;33m* Creating your ipa  and dSYM.zip files*"
+    puts "\033[0;33m****************************************"
     File.readlines(".travis.yml").each do |line|
       if line.include? "APPNAME"
         $APPNAME = extract_rvalue(line)
@@ -48,6 +48,7 @@ namespace :build do
     $PROVISIONING_PROFILE = Dir.pwd + "/scripts/travis/profile/#{$PROFILE_UUID}.mobileprovision"
           
     $ipa_export_success = system("xcrun -log -sdk iphoneos PackageApplication '#{$OUTPUTDIR}/#{$APPNAME}.app' -o '#{$OUTPUTDIR}/#{$APPNAME}.ipa' -sign '#{$DEVELOPER_NAME}' -embed '#{$PROVISIONING_PROFILE}'")
+    system("zip -r -9 '#{$OUTPUTDIR}/#{$APPNAME}.dSYM.zip' '#{$OUTPUTDIR}/#{$APPNAME}.app.dSYM'")
   end
 end
 
@@ -64,7 +65,7 @@ end
 desc "Build .ipa files for #{$APP_WORKSPACE_NAME} and signing it with configuration outlined in .travis.yml"
 task :ipa =>['build:build', "build:ipa"] do
   task_status_handler($ipa_export_success, "Building and Exporting IPA")
-  puts "\033[0;32m** The ipa is located in #{$OUTPUTDIR}" unless !$ipa_export_success
+  puts "\033[0;32m** The ipa and .dSYM.zip are located in #{$OUTPUTDIR}" unless !$ipa_export_success
 end
 
 def validate_file_and_fallback
