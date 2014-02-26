@@ -8,7 +8,7 @@ $APP_SCHEME_NAME = "BNToolkit"
 namespace :test do
   task :test do
     validate_file_and_fallback
-    $test_success = system("/usr/local/bin/xctool -#{$file_command} '#{$APP_WORKSPACE_NAME}.#{$file_extension}' -scheme '#{$APP_SCHEME_NAME}' -sdk iphonesimulator test")
+    $test_success = system("/usr/local/bin/xctool -#{$file_command} '#{$APP_WORKSPACE_NAME}.#{$file_extension}' -scheme '#{$APP_SCHEME_NAME}' -sdk iphonesimulator test" )
   end
   
 end
