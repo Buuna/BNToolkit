@@ -81,15 +81,17 @@
         make.left.equalTo(contentView.left).with.offset(10);
         make.right.equalTo(contentView.right).with.offset(-10);
         make.height.equalTo(upperField.height);
-    }];
-
-    //sizing view required to determine content view size
-    UIView *sizingView = [[UIView alloc] init];
-    [_scrollView addSubview:sizingView];
-    [sizingView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(lowerField.bottom);
         make.bottom.equalTo(contentView.bottom).with.offset(-10);
     }];
+
+
+//    //sizing view required to determine content view size
+//    UIView *sizingView = [[UIView alloc] init];
+//    [_scrollView addSubview:sizingView];
+//    [sizingView makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(lowerField.bottom);
+//        make.bottom.equalTo(contentView.bottom).with.offset(-10);
+//    }];
 }
 
 #pragma mark - UITextFieldDelegate
