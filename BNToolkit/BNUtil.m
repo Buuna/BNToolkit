@@ -100,6 +100,8 @@ NSString *BNStringByRemovingSuffix(NSString *string, NSString *suffix) {
 
 BOOL BNStringIsValidEmail(NSString* string) {
     NSError* error = NULL;
+    //regex below is RFC 2822 complete, http://stackoverflow.com/questions/800123/what-are-best-practices-for-validating-email-addresses-in-objective-c-for-ios-2
+    //simpler regexes have problems with some malformed e-mails
     NSRegularExpression* regex = [NSRegularExpression
                                   regularExpressionWithPattern:@"(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}"
                                   @"~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"
