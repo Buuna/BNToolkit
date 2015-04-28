@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BNToolkit"
-  s.version      = "0.0.7"
+  s.version      = "0.0.6"
   s.summary      = "A set of commonly used classes and utility functions."
   s.author       = { "dan" => "dan@buuna.com" }
   s.homepage     = 'https://github.com/Buuna/BNToolkit'
