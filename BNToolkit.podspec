@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BNToolkit"
-  s.version      = "0.0.6"
+  s.version      = "0.0.7"
   s.summary      = "A set of commonly used classes and utility functions."
   s.author       = { "dan" => "dan@buuna.com" }
   s.homepage     = 'https://github.com/Buuna/BNToolkit'
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.subspec 'Facebook' do |fb|
-    fb.dependency 'Facebook-iOS-SDK', '~> 3.8.0'
+    fb.dependency 'Facebook-iOS-SDK', '~> 4.0.1'
     fb.source_files = 'BNToolkit/BNFacebookManager/*'
     fb.public_header_files = 'BNToolkit/BNFacebookManager/*.h'
   end
