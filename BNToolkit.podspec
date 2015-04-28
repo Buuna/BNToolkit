@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.subspec 'Facebook' do |fb|
-    fb.dependency 'Facebook-iOS-SDK', '~> 4.0.1'
+    fb.dependency 'Facebook-iOS-SDK'
     fb.source_files = 'BNToolkit/BNFacebookManager/*'
     fb.public_header_files = 'BNToolkit/BNFacebookManager/*.h'
   end
